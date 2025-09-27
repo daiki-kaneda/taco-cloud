@@ -7,11 +7,11 @@ import lombok.Data;
 
 @Data
 public class TacoOrder {
-    private String delivaryName;
-    private String delivaryStreet;
-    private String delivaryCity;
-    private String delivaryState;
-    private String delivaryZip;
+    private String deliveryName;
+    private String deliveryStreet;
+    private String deliveryCity;
+    private String deliveryState;
+    private String deliveryZip;
     private String ccNumber;
     private String ccExpiration;
     private String ccCVV;
