@@ -17,7 +17,8 @@ import com.example.taco_cloud.domain.Ingredient.Type;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Slf4j
 @Controller
@@ -58,11 +59,18 @@ public class DesignTacoController {
         return "design";
     }
 
+    @PostMapping()
+    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+        tacoOrder.addTaco(taco);
+        log.info("Processing Taco:{}", taco);
+
+        return "redirect:/orders/current";
+    }
+
     private Iterable<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
         return ingredients
                 .stream()
                 .filter((i) -> i.getType() == type)
                 .collect(Collectors.toList());
     }
-
 }
