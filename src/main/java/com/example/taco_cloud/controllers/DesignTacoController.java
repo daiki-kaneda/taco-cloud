@@ -18,7 +18,6 @@ import com.example.taco_cloud.domain.Ingredient.Type;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Slf4j
 @Controller
@@ -54,12 +53,12 @@ public class DesignTacoController {
         return new Taco();
     }
 
-    @GetMapping()
+    @GetMapping
     public String showDesignForm() {
         return "design";
     }
 
-    @PostMapping()
+    @PostMapping
     public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
         tacoOrder.addTaco(taco);
         log.info("Processing Taco:{}", taco);
