@@ -5,10 +5,12 @@ import java.util.Map;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.NonNull;
+import org.springframework.stereotype.Component;
 
 import com.example.taco_cloud.domain.Ingredient;
 import com.example.taco_cloud.domain.Ingredient.Type;
 
+@Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
 
     private Map<String, Ingredient> ingredientMap = new HashMap<>();
